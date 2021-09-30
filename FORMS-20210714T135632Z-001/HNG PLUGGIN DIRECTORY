@@ -1,0 +1,55 @@
+//////////////////Pluggin GitHub link
+https://github.com/zurichat/zc_plugin_channels
+
+
+////////////Pluggin architecture link
+https://miro.com/app/board/o9J_l0Uv3Uc=/
+
+https://github.com/zuriinternship/zurichat/tree/main/api
+
+https://github.com/zuriinternship/zurichat/tree/main/db
+
+COELHO PLUGGIN USER STORIES/IDEAS DOCUMENTATION
+https://docs.google.com/document/d/1pIQsEgHpW-UNYnTzYaLL3fH51q_1EXNRdZlf2RHKc3c/edit?usp=sharing
+OR
+https://docs.google.com/document/d/1pIQsEgHpW-UNYnTzYaLL3fH51q_1EXNRdZlf2RHKc3c/edit?usp=drivesdk
+
+MENTORS
+UduakE
+Feranmi
+caculuz
+@SammyBloom
+iamahless
+aguythatcodes
+zeeson
+
+
+///////////////Pluggin Frontend Directory setup
+Good evening @everyone
+So let's walk through the frontend setup
+Here's the link 
+https://github.com/zurichat/zc_plugin_channels
+If you run it, you'll see 3 branches
+- main
+- dev
+- charles.duruaku-dev (this is my branch)
+
+Download the code base
+Open frontend/src
+The redux folder is there all the redux stuff happens
+components is where all the component stuff sits
+  - component/home contains all the components for the home screen (for example)
+  - component/shared contains all shared components
+  - src/utils you'll find api.js which holds all the endpoints we're hitting, utils.js is where all our utility stuff sit
+  - Don't worry about theme.js
+  - src/routes is where all the routes sit
+  - Please observe package.json file well, I installed a few utils
+  - moment - for date formatting
+  - axios - for handling api requests
+  - lodash - utility for performing heavy and light operations easily
+  - uuid - for random ID
+  - node-sass and sass - enables you to use .scss in the project
+  - react-icons - Library for icons
+
+
+

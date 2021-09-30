@@ -1,0 +1,59 @@
+1.	Add following tickets: 
+1. Setup our subdomain 2. Point the subdomain to our server 3. Setup a basic BE/FE app on this server that can be viewed by opening the subdomain
+
+2. After adding all those tickets, you have to make them work before the presentation tommorow
+3. DevOps team will need to help. All domain requests should be sent to @Naza who will forward them to me. I will point all domains at the servers you tell me to by 12. 3rd party servers are not allowed
+4. Before tommorow, we should be able to open your subdomain and see a basic app that says the name of your plugin
+5. Mobile should have a first APK or Package that says the name of your app. ZuriCore should have pushed an update to the repo and it should be live. Zuri Main should have pushed an update to the repo and it should be live.
+6. The 10% will be given fully if the above works. If it is partial, then 5% will be given. If your subdomain/app does not work at all, then you will not be allowed to present.
+7. If your team DevOps does not deliver, they will be moved to Dorime for deactivation. Being in Stage 5 is not for relaxation 🙂
+8. @channel Team leads may send me their subdomain and server IP address now. Only team leads. We have four servers we setup for the teams, please it must be one of the four. No external servers.
+9. @channel All plugins must be pure monolith apps. Do not break them into micro-services.
+10. This is the format for domains: dm.zuri.chat, channels.zuri.chat, todo.zuri.chat
+11. One way you can be safe for sure is this: 1. Create two issues for your team 2. Commit some code and close one issue at least. Anyone who has not done in that in the next few days - nothing is guaranteed.
+12. @channel All 200+ issues for each project should be submitted by 6pm today. Issues will be analysed and approved by mentors tommorow. You need at least 2x the number of issues as you have members in your team. Means each person should add minimum 2 issues.
+13. All teams should make Labels in GitHub issues. By default the label for your issues should be Pending Review. Add another label called Accepted, which the mentors will use to approve tickets to be worked on next week. All your issues must be in your github project (e.g https://github.com/zurichat/zc_core/issues/) and should be described using the standard user story format.
+14. It must be a repo in github.com/zurichat org.
+
+
+/////////////////////
+I went scouting for more info about the task and here's a summary of what I got:
+1.	We're working on software architecture
+2.	This will require fe, be and designers
+We're basically to come up with process flows, usecases, sitemaps, userflow, userstories and those kinda stuff so we'll need 3 be devs experienced in django, 3 experienced fe devs and the designers to work together
+
+The designers started work earlier today so we're good
+The be and fe devs should work with designers (letting them know/discussing what will happen in the frontend and backend of a process or feature)
+
+
+////////////////////////////
+@channel Team Leads can accept following scope of tickets only for their teams (please add new issues if not covered)
+
+These types of tickets can already be claimed and worked on by people. Coordinations should be by team leads (people should not double work).
+
+	A ticket for converting your plain HTML to the JS framework you are using. 
+
+	Load at least one dynamic component in your page
+
+	Add an endpoint for providing information about your application in json. Link it from homepage
+
+	Add an endpoint that provides a static list of the sidebar items that your application provides (Group Name and the particular items). It must not be dynamic yet. This is json
+
+	Tickets for adding the various frontend components/boxes/items that your application has. E.g if a chat application, you can approve a ticket for the chat box, the date widget, the chat list, etc
+
+	All tickets related to the UI design for the plugin
+
+	Ticket for switching to https
+
+	Tickets related to creating the data save/write endpoint for zc_main (not a plugin task)
+
+	All external pages tickets (zc_main)
+
+	Tickets for mock-interactions with the page (e.g if you are chatting, pressing enter and it appears in the chat list) - since we don't have messaging yet, this is just a display issue
+
+The goal is that by monday evening each plugin should kind of look like what you are aiming for. Very roughly. We don't care about interaction with the main zuri chat yet, we just want to see from a FE perspective that your plugin is starting to move in the correct direction. That means only this basic tickets/issues should be created and worked on. Nobody should work on advanced features at this time (like "A user should be able to initiate a phone call")
+
+All plugin team leads or appointed people can change the state of tickets related to the above as Approved. Then those who want to work on them can claim, work and close.
+
+The scope is flexible, but the idea here is that we work progressively and not pick any tickets that depend on things not complete ye
+

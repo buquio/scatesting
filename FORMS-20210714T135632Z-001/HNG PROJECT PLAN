@@ -1,0 +1,86 @@
+We are working on a Slack clone. Each team is working on a plugin for the Slack clone. The plugins can be anything you think of - e.g a music room, a whiteboarding room, even a chess room. There are some core plugins needed, e.g DM, Channels. Threads, Mentions. Each team is to pick a plugin that they are going to work on.
+
+The task for this week is to design out the architecture of your plugin using as many formal architecture methods as you can research - e.g use case diagrams, requirements, db design, etc. Look up online. Once your architecture is complete, you are to create *user stories* or tickets for your plugin. The user-stories are what each person is going to work on next week. That means the user stories must be as small as possible. If it can be broken, then break it down. A typical user story should take less than 30 minutes to do. Tiny frontend issues are fine as user stories.
+
+You are to prepare a presentation to be presented on a live call on sunday where you present what you will work on, and your architecture. For this week you will be judged on the quality of your presentation and analysis.
+
+(For next week, you will not be allowed to create new user stories. That means you must have enough for everyone to have something to work on. If you are 100 in the team and you create 80 stories, it means that there will only be job for 80 people, and of those not everyone will deliver. You should have at least 300 user stories for your plugin).
+1.	Zuri Core (GoLang). This is the main api that everyone consumes. Available on api.zuri.chat
+
+2. Zuri Main (NextJS/React/Node). This is the main app itself. Available on zuri.team. This can be worked on by up to 4 teams. Available sub projects: 1. External Pages 2. Authentication (Company) 3. Settings/Config 4. Invite Flow 5. Emails and Notifications 6. Company Switching 7. Search 8. User Profile & Settings
+
+3. DM Plugin (BE/FE combo)
+4. Channels Plugin (BE/FE combo)
+5. Chess Room Plugin (BE/FE combo)
+6. YouTube Music Video Plugin (BE/FE combo)
+7. Todo list Plugin
+8. Company Notice Board Plugin
+9. Animated Avatar Lounge Plugin
+10. Whiteboard Plugin
+11. Company Files Plugin
+12. Company Goals Plugin
+13. Company Online Tools Plugin (provides sidebar links to tools the company uses like Gmail)
+14. Android Mobile App
+15. iOS Mobile App
+16. Quick Reply App (only DMs)
+17. Company Important Deadline Plugin
+18. Company Duty Shift Plugin
+19. Company Sales Prospects Plugin
+20. Company Holiday Calendar Plugin
+
+
+
+////////////////////////////////
+https://hngi8.slack.com/archives/C02CB2R67T3/p1630038411152500
+
+https://hngi8.slack.com/archives/C02CB2R67T3/p1630066221183400
+
+
+
+
+
+
+
+
+
+///////////////////////////////////
+Hello guys,
+
+I have looked over the user stories documents and have been doing research to find a suitable architecture for the project and I think I've found some options that are worth looking into. This would help us streamline our research as well so we can come up with something tangible by the end of today.
+
+So generally there are 5 common types of architecture for applications:
+1. Layered Architecture
+2. Event-Driven Architecture
+3. Microkernel Architecture
+4. Microservices Architecture
+5. Space-Based Architecture
+
+Mark already said that we shouldn't use anything micro(I think that's because the main Zuri Chat app already uses Microkernel Architecture[otherwise known as plug-in architecture]) so numbers 3 and 4 are out. Leaving us with 1,2, and 5.
+
+Now, I propose three options I really want us to consider and I will give my reasons.
+
+Firstly, we can consider the Layered Architecture because:
+1. It is very easy to understand and implement.(Ease of development is very very high)
+2. It provides layers of isolation.
+3. It is usually the default architecture for many applications
+
+Major problems with this as regards our purposes is that it does not easily provide room for scalability and scalability is at the very top of our non-functional requirement priorities. Scalability in the sense that the channels should be able to handle a variable load of users, you can take for example that we were 10k in the first stage. Scalability with Layered architecture is not impossible though as we can dynamically scale with either horizontal or vertical scaling options but it is harder compared to other architectures.
+
+Secondly, we can consider Space-Based Architecture because:
+1. It is a widely recommended choice for social media like platforms (as each instance of the application has its own processing unit, which makes it very reliable.)
+2. Since we wouldn't be using our own data storage system we would need some sort of persistence scheme and the Space-Based Architecture allows users to store data temporarily in program memory using Data Grids(I understand it kind of like caching). Mark even advised that we take this option of storing in memory instead of creating our own database in the plugin meeting.
+3. It is used for applications with variable user volumes. Like in our case.
+
+The problem with this architecture is that its ease of development is not so high in our case(there is a lot to read and understand for us to work on this). I haven't also really understood how we can implement business logic using this architecture. It seems like an overly complex choice but it might also be worth it.
+
+Thirdly, we can join the slack train and create a Hybrid Architecture consisting of Maybe space-based and event-driven, or layered and event-driven. From the slides that @mux pasted, we know that slack uses a hybrid architecture because it uses job queues(which are event-driven characteristics) and isolated layers (which is a characteristic of layered architecture).
+
+I suggest that we streamline our research to these options so we can be as efficient as possible. Your thoughts on these would be appreciated. Let's reason together and get something concrete by the end of today so we don't have to visit this again.
+
+
+/////////////////////
+@channel Our real time communication server is now up and running. We are using Centrifugo. There are many client libraries for it, so use the one that works for your usecase. You can see sample javascript code on how to use it here: https://api.zuri.chat/realtime/test
+
+For testing purpose, this domain has been whitelisted also https://www.piesocket.com/websocket-tester
+
+Your backend should provide all the info  that the frontend needs to connect directly to the realtime endpoint. This is for future performance and scalability reasons.
